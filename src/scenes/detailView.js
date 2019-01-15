@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, Button, View, StyleSheet, Image } from 'react-native';
+import email from 'react-native-email'
 
 const styles = StyleSheet.create({
   container: {
@@ -53,8 +54,23 @@ export default class DetailView extends Component {
           <Text style={styles.name}>{params.data.name}</Text>
           <Text style={styles.text}>{params.data.custom_type}</Text>
           <Text style={styles.text}>URL: {params.data.channel_url}</Text>
+          <Text style={styles.text}> </Text>
+          <Button
+            onPress={() => {
+              const to = ['ardeleanalexandru3@gmail.com'] // string or array of email addresses
+              email(to, {
+                  // Optional additional arguments
+                  cc: [], // string or array of email addresses
+                  bcc: '', // string or array of email addresses
+                  subject: 'Show how to use',
+                  body: 'Some body right here'
+              }).catch(console.error)
+            }}
+            title="Email Channel"
+            color="#841584"
+            accessibilityLabel="Send an email to the admin of this channel"
+          />
         </View>
-
       </View>
     );
   }
