@@ -38,6 +38,7 @@ export default class DetailView extends Component {
      backgroundColor:'#AAA0A0'
    }
  });
+
   render() {
     const { params } = this.props.navigation.state;
     return(
